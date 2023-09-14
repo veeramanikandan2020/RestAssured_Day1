@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="day1.restassured.HTTPRequest">
+      <class name="day7.restassured.BasicAuth">
         <methods>
-          <include name="getUser"/>
+          <include name="testBasicAuth"/>
         </methods>
-      </class> <!-- day1.restassured.HTTPRequest -->
+      </class> <!-- day7.restassured.BasicAuth -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -8,17 +8,19 @@ import static org.hamcrest.Matchers.*;
 import java.util.HashMap;
 
 public class PostUsingHashMap {
+	
+	int id = 4;
 
 @Test		
 void testPostHashMap(){
 	
 	HashMap data = new HashMap();
 		
-		data.put("name","Scott");
-		data.put("location","France");
-		data.put("phone","phone");
+		data.put("name","Jacab");
+		data.put("location","Duabi");
+		data.put("phone","123456789");
 		
-		String courseArr[] = {"C","C++"};
+		String courseArr[] = {"Java","Selenuim"};
 		
 		data.put("course",courseArr);
 		
@@ -27,14 +29,15 @@ void testPostHashMap(){
 			.body(data)
 		.when()
 			.post("http://localhost:3000/students")
+			//http://localhost:3000/students
 			
 		.then()
 			.statusCode(201)
-			.body("name",equalTo("Scott"))
-			.body("location",equalTo("France"))
-			.body("phone",equalTo("phone"))
-			.body("course[0]",equalTo("C"))
-			.body("course[1]",equalTo("C++"))
+			.body("name",equalTo("Jacab"))
+			.body("location",equalTo("Duabi"))
+			.body("phone",equalTo("123456789"))
+			.body("course[0]",equalTo("Java"))
+			.body("course[1]",equalTo("Selenuim"))
 			.header("Content-Type","application/json; charset=utf-8")
 			.log().all();
 			
@@ -50,7 +53,7 @@ void testPostHashMap(){
 			given()
 			
 			.when()
-				.delete("http://localhost:3000/students/4")
+				.delete("http://localhost:3000/students/"+id)
 				
 			.then()
 				.statusCode(200);
