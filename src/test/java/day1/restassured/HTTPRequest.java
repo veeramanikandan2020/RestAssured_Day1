@@ -50,6 +50,7 @@ public class HTTPRequest{
 		data.put("Job", "Trainer");
 
 		for(Map.Entry<String,String> entry : data.entrySet()){
+			// Printing each data key and value
 			System.out.println(entry.getKey());
 			System.out.println(entry.getValue());
 		}
@@ -57,10 +58,12 @@ public class HTTPRequest{
 		id = given()
 				.contentType("application/json")
 				.body(data)
-
 				.when()
 				.post("https://reqres.in/api/users")
 				.jsonPath().getInt("id");
+		System.out.println("---------------------------------------------");
+		System.out.println("-------------Sysid is obtained----------------");
+		System.out.println("---------------------------------------------");
 	}
 
 	@Test(priority = 4, dependsOnMethods = "createUser")
