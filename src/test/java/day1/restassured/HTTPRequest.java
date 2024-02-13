@@ -23,10 +23,7 @@ public class HTTPRequest{
 				.then().statusCode(200)
 				.log().all();
 
-	}
-
-		/*
-		
+	}	
 		@Test(priority = 2)
 		void listUser() {
 
@@ -37,10 +34,6 @@ public class HTTPRequest{
 			.body("page", equalTo(2))
 			.log().all();
 
-		}*/
-
-
-
 	@Test(priority = 3)
 	void createUser() {
 
@@ -50,6 +43,7 @@ public class HTTPRequest{
 		data.put("Job", "Trainer");
 
 		for(Map.Entry<String,String> entry : data.entrySet()){
+			System.out.println("Data Key Value Pair is printed below:");
 			System.out.println(entry.getKey());
 			System.out.println(entry.getValue());
 		}
@@ -57,10 +51,10 @@ public class HTTPRequest{
 		id = given()
 				.contentType("application/json")
 				.body(data)
-
 				.when()
 				.post("https://reqres.in/api/users")
 				.jsonPath().getInt("id");
+		System.out.println("Sys id Value is :"+id);
 	}
 
 	@Test(priority = 4, dependsOnMethods = "createUser")
